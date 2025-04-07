@@ -158,7 +158,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectHisPatientInfoList" parameterType="HisPatientInfo" resultMap="HisPatientInfoResult">
         <include refid="selectHisPatientInfoVo"/>
-        <where>  
+        <where>
+            <!-- 筛选2025年之后的数据 -->
+            F_DateTime_In >= '2024-01-01 00:00:00'and F_DateTime_Out is null and F_Bed_No is not null
             <if test="fDeptName != null  and fDeptName != ''"> and F_Dept_Name like concat('%', #{fDeptName}, '%')</if>
             <if test="fDoctorNameZy != null  and fDoctorNameZy != ''"> and F_Doctor_Name_ZY = #{fDoctorNameZy}</if>
             <if test="fHzlb != null  and fHzlb != ''"> and F_HZLB = #{fHzlb}</if>
