@@ -121,6 +121,20 @@ export const dynamicRoutes = [
     ]
   },
   {
+      path: '/yb/workbench',
+      component: Layout,
+      hidden: false,
+      meta: { title: '医保工作台', icon: 'dashboard' },
+      children: [
+        {
+          path: 'index',
+          name: 'YbWorkbench',
+          component: () => import('@/views/index'),
+          meta: { title: '医保工作台', icon: 'dashboard' }
+        }
+      ]
+    },
+  {
     path: '/system/dict-data',
     component: Layout,
     hidden: true,

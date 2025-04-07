@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.web.controller.YbWorkbench.mapper.YbWorkbenchMapper">
+    <!-- 患者统计查询 -->
+    <select id="selectPatientStats" resultType="com.ruoyi.web.controller.YbWorkbench.domain.YbWorkbench">
+        SELECT
+        COUNT(1) AS cureNum,
+        COUNT(DISTINCT F_His_No) AS person,
+        SUM(F_Amount) AS amount,
+        SUM(F_SB_Amount) AS sbAmount,
+        SUM(F_Days) AS days,
+        SUM(F_Balance) AS balance,
+        SUM(F_Score) AS score,
+        SUM(insurance_self_paid)/NULLIF(SUM(F_Amount), 0) AS selfRatio
+        FROM his_patient_info
+        WHERE F_Is_Mt = 0
+        AND F_Is_YB IN (1, 6)
+        AND F_Balance_Date BETWEEN #{balanceDateStart} AND #{balanceDateEnd}
+    </select>
+
+    <!-- 按月统计数据 -->
+    <select id="selectMonthlyData" parameterType="YbWorkbench" resultType="YbWorkbench">
+        SELECT
+        MONTH(F_Balance_Date) AS month,
+        DATE_FORMAT(F_Balance_Date, '%Y-%m') AS date,
+        COUNT(1) AS num,
+        SUM((SELECT insurance_self_paid FROM his_inpatient_records_eav_extend
+        WHERE his_id = his_patient_info.F_His_Id LIMIT 1))/SUM(F_Amount) AS zfl
+        FROM his_patient_info
+        WHERE F_Is_Mt = 0
+        AND F_Is_YB IN (1, 6)
+        AND F_Balance_Date BETWEEN #{balanceDateStart} AND #{balanceDateEnd}
+        GROUP BY MONTH(F_Balance_Date), DATE_FORMAT(F_Balance_Date, '%Y-%m')
+    </select>
+
+    <!-- 病种增跌幅查询 -->
+    <select id="selectMaxRangeOfIncDrop" parameterType="YbWorkbench" resultType="YbWorkbench">
+        SELECT
+        F_Diagnosis_Icd_Cal AS diagnosisIcdCal,
+        F_Diagnosis_Cal AS diagnosisCal,
+        F_Treatment_Name AS treatmentName,
+        F_Treatment_Type AS treatmentType,
+        COUNT(1) AS totalRc,
+        SUM(F_Score) AS score,
+        F_Standard_Score AS standardScore,
+        AVG(F_Amount) AS avgAmount,
+        AVG(F_Balance) AS avgBalance,
+        SUM(F_Balance) AS balance
+        FROM his_patient_info
+        WHERE F_Is_Mt = 0
+        AND F_Is_YB IN (1, 6)
+        AND F_Balance_Date BETWEEN #{balanceDateStart} AND #{balanceDateEnd}
+        AND F_Diagnosis_Icd_Cal IS NOT NULL
+        GROUP BY F_Diagnosis_Icd_Cal, F_Treatment_Type
+        HAVING (avgBalance > 0 OR avgBalance < 0) AND totalRc >= 10
+        ORDER BY ABS(avgBalance) DESC
+        LIMIT 40
+    </select>
+
+    <!-- 盈利亏损病种统计 -->
+    <select id="selectDiagData" parameterType="YbWorkbench" resultType="YbWorkbench">
+        SELECT
+        F_Diagnosis_Icd_Cal AS diagnosisIcdCal,
+        F_Treatment_Name AS treatmentName,
+        MONTH(F_Balance_Date) AS month,
+        1 AS cureNum,
+        SUM(F_Balance) AS balance
+        FROM his_patient_info
+        WHERE F_Is_Mt = 0
+        AND F_Is_YB IN (1, 6)
+        AND F_Balance_Date BETWEEN #{balanceDateStart} AND #{balanceDateEnd}
+        AND F_Diagnosis_Icd_Cal IS NOT NULL
+        GROUP BY F_Diagnosis_Icd_Cal, F_Treatment_Type, MONTH(F_Balance_Date)
+    </select>
+
+    <!-- 盈利亏损科室统计 -->
+    <select id="selectDeptData" parameterType="YbWorkbench" resultType="YbWorkbench">
+        SELECT
+        F_Dept_Name AS deptName,
+        MONTH(F_Balance_Date) AS month,
+        1 AS cureNum,
+        SUM(F_Balance) AS balance
+        FROM his_patient_info
+        WHERE F_Is_Mt = 0
+        AND F_Is_YB IN (1, 6)
+        AND F_Balance_Date BETWEEN #{balanceDateStart} AND #{balanceDateEnd}
+        AND F_Diagnosis_Icd_Cal IS NOT NULL
+        GROUP BY F_Dept_No, MONTH(F_Balance_Date)
+    </select>
+
+    <!-- TOP病种查询 -->
+    <select id="selectTopDiseases" parameterType="YbWorkbench" resultType="YbWorkbench">
+        SELECT
+        F_Diagnosis_Icd_Cal AS diagnosisIcdCal,
+        F_Diagnosis_Cal AS diagnosisCal,
+        F_Treatment_Name AS treatmentName,
+        F_Treatment_Type AS treatmentType,
+        COUNT(1) AS totalRc,
+        SUM(F_Score) AS score,
+        F_Standard_Score AS standardScore,
+        AVG(F_Amount) AS avgAmount,
+        AVG(F_Balance) AS avgBalance,
+        SUM(F_Balance) AS balance
+        FROM his_patient_info
+        WHERE F_Is_Mt = 0
+        AND F_Is_YB IN (1, 6)
+        AND F_Balance_Date BETWEEN #{balanceDateStart} AND #{balanceDateEnd}
+        AND F_Diagnosis_Icd_Cal IS NOT NULL
+        GROUP BY F_Diagnosis_Icd_Cal, F_Treatment_Type
+        HAVING avgBalance IS NOT NULL
+        AND avgBalance ${sortDirection == 'desc' ? '>' : '<'} 0
+        AND totalRc >= #{caseCount}
+        ORDER BY ${sortField} ${sortDirection}
+        LIMIT 20
+    </select>
+
+    <!-- 月度数据查询 -->
+    <select id="selectMonthlyData" parameterType="YbWorkbench" resultType="YbWorkbench">
+        SELECT
+        MONTH(F_Balance_Date) AS month,
+        DATE_FORMAT(F_Balance_Date, '%Y-%m') AS date,
+        COUNT(1) AS num,
+        SUM(insurance_self_paid)/NULLIF(SUM(F_Amount), 0) AS zfl
+        FROM his_patient_info
+        WHERE F_Is_Mt = 0
+        AND F_Is_YB IN (1, 6)
+        AND F_Balance_Date BETWEEN #{balanceDateStart} AND #{balanceDateEnd}
+        GROUP BY MONTH(F_Balance_Date), DATE_FORMAT(F_Balance_Date, '%Y-%m')
+    </select>
+
+    <!-- 病种数据查询 -->
+    <select id="selectDiagData" parameterType="YbWorkbench" resultType="YbWorkbench">
+        SELECT
+        F_Diagnosis_Icd_Cal AS diagnosisIcdCal,
+        F_Treatment_Name AS treatmentName,
+        MONTH(F_Balance_Date) AS month,
+        1 AS cureNum,
+        SUM(F_Balance) AS balance
+        FROM his_patient_info
+        WHERE F_Is_Mt = 0
+        AND F_Is_YB IN (1, 6)
+        AND F_Balance_Date BETWEEN #{balanceDateStart} AND #{balanceDateEnd}
+        AND F_Diagnosis_Icd_Cal IS NOT NULL
+        GROUP BY F_Diagnosis_IcdCal, F_Treatment_Type, MONTH(F_Balance_Date)
+    </select>
+
+    <!-- 科室数据查询 -->
+    <select id="selectDeptData" parameterType="YbWorkbench" resultType="YbWorkbench">
+        SELECT
+        F_Dept_Name AS deptName,
+        MONTH(F_Balance_Date) AS month,
+        1 AS cureNum,
+        SUM(F_Balance) AS balance
+        FROM his_patient_info
+        WHERE F_Is_Mt = 0
+        AND F_Is_YB IN (1, 6)
+        AND F_Balance_Date BETWEEN #{balanceDateStart} AND #{balanceDateEnd}
+        AND F_Diagnosis_Icd_Cal IS NOT NULL
+        GROUP BY F_Dept_No, MONTH(F_Balance_Date)
+    </select>
+
+    <!-- 统筹情况查询 -->
+    <select id="selectTcqkData" parameterType="YbWorkbench" resultType="YbWorkbench">
+        SELECT
+        F_Dept_Name AS deptName,
+        COUNT(1) AS num,
+        SUM(F_SB_Amount) AS sbAmount,
+        AVG(F_Amount) AS avgAmount,
+        SUM(F_Balance) AS balance,
+        dept_total AS deptTotal,
+        (SUM(F_SB_Amount)/dept_total*100) AS used
+        FROM his_patient_info
+        JOIN base_budget_dept ON his_patient_info.F_Dept_No = base_budget_dept.dept_no
+        WHERE F_Is_Mt = 0
+        AND F_Is_YB IN (1, 6)
+        AND F_Balance_Date BETWEEN #{balanceDateStart} AND #{balanceDateEnd}
+        AND budget_date = #{year}
+        GROUP BY F_Dept_No
+    </select>
+</mapper>
