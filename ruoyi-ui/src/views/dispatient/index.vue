@@ -35,7 +35,7 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="在院预警数量" prop="preRuleCount">
+      <el-form-item label="在院预警" prop="preRuleCount">
         <el-input
           v-model="queryParams.preRuleCount"
           placeholder="请输入在院预警数量"
@@ -97,7 +97,6 @@
 
     <el-table v-loading="loading" :data="dispatientList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="${comment}" align="center" prop="id" />
       <el-table-column label="住院号" align="center" prop="fHisNo" />
       <el-table-column label="床号" align="center" prop="fBedNo" />
       <el-table-column label="病人性质名称" align="center" prop="fPatientTypeCn" />
@@ -142,7 +141,7 @@
         </template>
       </el-table-column>
     </el-table>
-    
+
     <pagination
       v-show="total>0"
       :total="total"
