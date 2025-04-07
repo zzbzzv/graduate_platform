@@ -1,8 +1,8 @@
 {
-  "name": "ruoyi",
+  "name": "yibao",
   "version": "3.8.9",
-  "description": "若依管理系统",
-  "author": "若依",
+  "description": "医保结算系统",
+  "author": "AZB",
   "license": "MIT",
   "scripts": {
     "dev": "vue-cli-service serve",
