@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.inpatient.mapper.HisPatientInfoMapper">
+    
+    <resultMap type="HisPatientInfo" id="HisPatientInfoResult">
+        <result property="id"    column="id"    />
+        <result property="fHisId"    column="F_His_Id"    />
+        <result property="fHisNo"    column="F_His_No"    />
+        <result property="fBedNo"    column="F_Bed_No"    />
+        <result property="fPatientType"    column="F_Patient_Type"    />
+        <result property="fPatientTypeCn"    column="F_Patient_Type_CN"    />
+        <result property="fPatientNo"    column="F_Patient_No"    />
+        <result property="fTimes"    column="F_Times"    />
+        <result property="fInsuranceNo"    column="F_Insurance_No"    />
+        <result property="fPatientName"    column="F_Patient_Name"    />
+        <result property="fPatientBirthday"    column="F_Patient_Birthday"    />
+        <result property="fPatientAge"    column="F_Patient_Age"    />
+        <result property="fPatientCardno"    column="F_Patient_CardNo"    />
+        <result property="fPatientSex"    column="F_Patient_Sex"    />
+        <result property="fPatientJob"    column="F_Patient_Job"    />
+        <result property="fPatientAddress"    column="F_Patient_Address"    />
+        <result property="fDoctorNoZg"    column="F_Doctor_No_ZG"    />
+        <result property="fDoctorNameZg"    column="F_Doctor_Name_ZG"    />
+        <result property="fDeptNo"    column="F_Dept_No"    />
+        <result property="fDeptName"    column="F_Dept_Name"    />
+        <result property="fDatetimeIn"    column="F_DateTime_In"    />
+        <result property="fDatetimeOut"    column="F_DateTime_Out"    />
+        <result property="fBalanceDate"    column="F_Balance_Date"    />
+        <result property="fDays"    column="F_Days"    />
+        <result property="fDiagnosisInIcd"    column="F_Diagnosis_In_Icd"    />
+        <result property="fOperationInIcd"    column="F_Operation_In_Icd"    />
+        <result property="fDiagnosisOutIcd"    column="F_Diagnosis_Out_Icd"    />
+        <result property="fOperationOutIcd"    column="F_Operation_Out_Icd"    />
+        <result property="fDiagnosisMzIcd"    column="F_Diagnosis_MZ_Icd"    />
+        <result property="fDiagnosisIn"    column="F_Diagnosis_In"    />
+        <result property="fOperationIn"    column="F_Operation_In"    />
+        <result property="fDiagnosisOut"    column="F_Diagnosis_Out"    />
+        <result property="fOperationOut"    column="F_Operation_Out"    />
+        <result property="fDiagnosisMz"    column="F_Diagnosis_MZ"    />
+        <result property="fEmrDiagCode"    column="F_Emr_Diag_Code"    />
+        <result property="fEmrDiagName"    column="F_Emr_Diag_Name"    />
+        <result property="fEmrOprnCode"    column="F_Emr_Oprn_Code"    />
+        <result property="fEmrOprnName"    column="F_Emr_Oprn_Name"    />
+        <result property="fBaDiagCode"    column="F_Ba_Diag_Code"    />
+        <result property="fBaDiagName"    column="F_Ba_Diag_Name"    />
+        <result property="fBaOprnCode"    column="F_Ba_Oprn_Code"    />
+        <result property="fBaOprnName"    column="F_Ba_Oprn_Name"    />
+        <result property="fYbDiagCode"    column="F_Yb_Diag_Code"    />
+        <result property="fYbDiagName"    column="F_Yb_Diag_Name"    />
+        <result property="fYbOprnCode"    column="F_Yb_Oprn_Code"    />
+        <result property="fYbOprnName"    column="F_Yb_Oprn_Name"    />
+        <result property="fBmybh"    column="F_BMYBH"    />
+        <result property="fBmy"    column="F_BMY"    />
+        <result property="fTreatmentType"    column="F_Treatment_Type"    />
+        <result property="fTreatmentName"    column="F_Treatment_Name"    />
+        <result property="fDiagnosisIcdCal"    column="F_Diagnosis_Icd_Cal"    />
+        <result property="fDiagnosisCal"    column="F_Diagnosis_Cal"    />
+        <result property="fOperationIcdCal"    column="F_Operation_Icd_Cal"    />
+        <result property="fOperationCal"    column="F_Operation_Cal"    />
+        <result property="fTreatmentTypeCal"    column="F_Treatment_Type_Cal"    />
+        <result property="fTreatmentNameCal"    column="F_Treatment_Name_Cal"    />
+        <result property="fDiseaseType"    column="F_Disease_Type"    />
+        <result property="fDiseaseTypeBefor"    column="F_Disease_Type_Befor"    />
+        <result property="fYears"    column="F_Years"    />
+        <result property="fParQ0"    column="F_Par_Q0"    />
+        <result property="fParQ1"    column="F_Par_Q1"    />
+        <result property="fParQ1H"    column="F_Par_Q1_H"    />
+        <result property="fParB"    column="F_Par_B"    />
+        <result property="fParR"    column="F_Par_R"    />
+        <result property="fStandardScore"    column="F_Standard_Score"    />
+        <result property="fScore"    column="F_Score"    />
+        <result property="fAmount"    column="F_Amount"    />
+        <result property="fSbAmount"    column="F_SB_Amount"    />
+        <result property="fSbTotal"    column="F_SB_Total"    />
+        <result property="fBalance"    column="F_Balance"    />
+        <result property="fCostTotal"    column="F_Cost_Total"    />
+        <result property="fClinicalSbAmount"    column="F_Clinical_SB_Amount"    />
+        <result property="fPreSbTotal"    column="F_Pre_SB_Total"    />
+        <result property="fPreAmount"    column="F_Pre_Amount"    />
+        <result property="fPreZfhj"    column="F_Pre_ZFHJ"    />
+        <result property="fPreZyf"    column="F_Pre_ZYF"    />
+        <result property="fPreZfyf"    column="F_Pre_ZFYF"    />
+        <result property="fPreZclf"    column="F_Pre_ZCLF"    />
+        <result property="fPreZfcl"    column="F_Pre_ZFCL"    />
+        <result property="fMatchFlag"    column="F_Match_Flag"    />
+        <result property="fDoctorNoZy"    column="F_Doctor_No_ZY"    />
+        <result property="fDoctorNameZy"    column="F_Doctor_Name_ZY"    />
+        <result property="fDoctorNoZz"    column="F_Doctor_No_ZZ"    />
+        <result property="fDoctorNameZz"    column="F_Doctor_Name_ZZ"    />
+        <result property="fReportFlag"    column="F_Report_Flag"    />
+        <result property="fDeptNoBa"    column="F_Dept_No_Ba"    />
+        <result property="fDeptNameBa"    column="F_Dept_Name_Ba"    />
+        <result property="fJsfs"    column="F_JSFS"    />
+        <result property="fCostOperation"    column="F_Cost_Operation"    />
+        <result property="fCostZl"    column="F_Cost_Zl"    />
+        <result property="fUpdateFlag"    column="F_Update_Flag"    />
+        <result property="fDiagnosisOutFlag"    column="F_Diagnosis_Out_Flag"    />
+        <result property="fOperationOutFlag"    column="F_Operation_Out_Flag"    />
+        <result property="fDiagnosisMzFlag"    column="F_Diagnosis_MZ_Flag"    />
+        <result property="fDiagnosisBlFlag"    column="F_Diagnosis_BL_Flag"    />
+        <result property="createdAt"    column="created_at"    />
+        <result property="updatedAt"    column="updated_at"    />
+        <result property="fHisInFlag"    column="F_His_In_Flag"    />
+        <result property="sbIcdScoreVersionNo"    column="sb_icd_score_version_no"    />
+        <result property="sbOpTreatmentVersionNo"    column="sb_op_treatment_version_no"    />
+        <result property="fIsMt"    column="F_Is_MT"    />
+        <result property="fIsYb"    column="F_Is_YB"    />
+        <result property="fHisBz"    column="F_His_BZ"    />
+        <result property="fInStatus"    column="F_In_Status"    />
+        <result property="fAppraiseScore"    column="F_Appraise_Score"    />
+        <result property="fAppraiseScoreH"    column="F_Appraise_Score_H"    />
+        <result property="fPreMlnZf"    column="F_Pre_MLN_ZF"    />
+        <result property="fPreMlwZf"    column="F_Pre_MLW_ZF"    />
+        <result property="fPreParR"    column="F_Pre_Par_R"    />
+        <result property="fPreBalance"    column="F_Pre_Balance"    />
+        <result property="fJzjlh"    column="F_JZJLH"    />
+        <result property="fJsxh"    column="F_JSXH"    />
+        <result property="fHzlb"    column="F_HZLB"    />
+        <result property="fXzlx"    column="F_XZLX"    />
+        <result property="fYllb"    column="F_YLLB"    />
+        <result property="fDeptInNo"    column="F_Dept_In_No"    />
+        <result property="fDeptInName"    column="F_Dept_In_Name"    />
+        <result property="fEffectiveIncome"    column="F_effective_income"    />
+        <result property="fCostTreat"    column="F_cost_treat"    />
+        <result property="fWesternMedicine"    column="F_western_medicine"    />
+        <result property="fJcf"    column="F_jcf"    />
+        <result property="fChineseMedicine"    column="F_chinese_medicine"    />
+        <result property="fCostMaterial"    column="F_cost_material"    />
+        <result property="fInspection"    column="F_Inspection"    />
+        <result property="fMzf"    column="F_mzf"    />
+        <result property="gdType"    column="gd_type"    />
+        <result property="gdDocttime"    column="gd_docttime"    />
+        <result property="gdNursetime"    column="gd_nursetime"    />
+        <result property="preRuleCount"    column="pre_rule_count"    />
+        <result property="fWardNo"    column="F_Ward_No"    />
+        <result property="fWardName"    column="F_Ward_Name"    />
+        <result property="fOperationOutIcdDip"    column="F_Operation_Out_Icd_Dip"    />
+        <result property="fOperationOutDip"    column="F_Operation_Out_Dip"    />
+        <result property="ylzcode"    column="ylzcode"    />
+        <result property="ylzname"    column="ylzname"    />
+        <result property="doctor"    column="doctor"    />
+        <result property="sdrStatus"    column="sdr_status"    />
+        <result property="fYlAmount"    column="F_Yl_Amount"    />
+        <result property="isDay15"    column="is_day_15"    />
+        <result property="diseaseGroup"    column="disease_group"    />
+        <result property="diseaseSeverity"    column="disease_severity"    />
+        <result property="diseaseAdjustment"    column="disease_adjustment"    />
+        <result property="additiveCoefficient"    column="additive_coefficient"    />
+        <result property="fTreatmentInfo"    column="F_Treatment_Info"    />
+        <result property="isHighPrecision"    column="is_high_precision"    />
+    </resultMap>
+
+    <sql id="selectHisPatientInfoVo">
+        select id, F_His_Id, F_His_No, F_Bed_No, F_Patient_Type, F_Patient_Type_CN, F_Patient_No, F_Times, F_Insurance_No, F_Patient_Name, F_Patient_Birthday, F_Patient_Age, F_Patient_CardNo, F_Patient_Sex, F_Patient_Job, F_Patient_Address, F_Doctor_No_ZG, F_Doctor_Name_ZG, F_Dept_No, F_Dept_Name, F_DateTime_In, F_DateTime_Out, F_Balance_Date, F_Days, F_Diagnosis_In_Icd, F_Operation_In_Icd, F_Diagnosis_Out_Icd, F_Operation_Out_Icd, F_Diagnosis_MZ_Icd, F_Diagnosis_In, F_Operation_In, F_Diagnosis_Out, F_Operation_Out, F_Diagnosis_MZ, F_Emr_Diag_Code, F_Emr_Diag_Name, F_Emr_Oprn_Code, F_Emr_Oprn_Name, F_Ba_Diag_Code, F_Ba_Diag_Name, F_Ba_Oprn_Code, F_Ba_Oprn_Name, F_Yb_Diag_Code, F_Yb_Diag_Name, F_Yb_Oprn_Code, F_Yb_Oprn_Name, F_BMYBH, F_BMY, F_Treatment_Type, F_Treatment_Name, F_Diagnosis_Icd_Cal, F_Diagnosis_Cal, F_Operation_Icd_Cal, F_Operation_Cal, F_Treatment_Type_Cal, F_Treatment_Name_Cal, F_Disease_Type, F_Disease_Type_Befor, F_Years, F_Par_Q0, F_Par_Q1, F_Par_Q1_H, F_Par_B, F_Par_R, F_Standard_Score, F_Score, F_Amount, F_SB_Amount, F_SB_Total, F_Balance, F_Cost_Total, F_Clinical_SB_Amount, F_Pre_SB_Total, F_Pre_Amount, F_Pre_ZFHJ, F_Pre_ZYF, F_Pre_ZFYF, F_Pre_ZCLF, F_Pre_ZFCL, F_Match_Flag, F_Doctor_No_ZY, F_Doctor_Name_ZY, F_Doctor_No_ZZ, F_Doctor_Name_ZZ, F_Report_Flag, F_Dept_No_Ba, F_Dept_Name_Ba, F_JSFS, F_Cost_Operation, F_Cost_Zl, F_Update_Flag, F_Diagnosis_Out_Flag, F_Operation_Out_Flag, F_Diagnosis_MZ_Flag, F_Diagnosis_BL_Flag, created_at, updated_at, F_His_In_Flag, sb_icd_score_version_no, sb_op_treatment_version_no, F_Is_MT, F_Is_YB, F_His_BZ, F_In_Status, F_Appraise_Score, F_Appraise_Score_H, F_Pre_MLN_ZF, F_Pre_MLW_ZF, F_Pre_Par_R, F_Pre_Balance, F_JZJLH, F_JSXH, F_HZLB, F_XZLX, F_YLLB, F_Dept_In_No, F_Dept_In_Name, F_effective_income, F_cost_treat, F_western_medicine, F_jcf, F_chinese_medicine, F_cost_material, F_Inspection, F_mzf, gd_type, gd_docttime, gd_nursetime, pre_rule_count, F_Ward_No, F_Ward_Name, F_Operation_Out_Icd_Dip, F_Operation_Out_Dip, ylzcode, ylzname, doctor, sdr_status, F_Yl_Amount, is_day_15, disease_group, disease_severity, disease_adjustment, additive_coefficient, F_Treatment_Info, is_high_precision from his_patient_info
+    </sql>
+
+    <select id="selectHisPatientInfoList" parameterType="HisPatientInfo" resultMap="HisPatientInfoResult">
+        <include refid="selectHisPatientInfoVo"/>
+        <where>
+            <!-- 筛选2025年之后的数据 -->
+            F_DateTime_In >= '2024-01-01 00:00:00'and F_DateTime_Out is null and F_Bed_No is not null
+            <if test="fDeptName != null  and fDeptName != ''"> and F_Dept_Name like concat('%', #{fDeptName}, '%')</if>
+            <if test="fDoctorNameZy != null  and fDoctorNameZy != ''"> and F_Doctor_Name_ZY = #{fDoctorNameZy}</if>
+            <if test="fHzlb != null  and fHzlb != ''"> and F_HZLB = #{fHzlb}</if>
+            <if test="fXzlx != null  and fXzlx != ''"> and F_XZLX = #{fXzlx}</if>
+            <if test="preRuleCount != null "> and pre_rule_count = #{preRuleCount}</if>
+        </where>
+    </select>
+    
+    <select id="selectHisPatientInfoById" parameterType="Long" resultMap="HisPatientInfoResult">
+        <include refid="selectHisPatientInfoVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertHisPatientInfo" parameterType="HisPatientInfo" useGeneratedKeys="true" keyProperty="id">
+        insert into his_patient_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="fHisId != null">F_His_Id,</if>
+            <if test="fHisNo != null">F_His_No,</if>
+            <if test="fBedNo != null">F_Bed_No,</if>
+            <if test="fPatientType != null">F_Patient_Type,</if>
+            <if test="fPatientTypeCn != null">F_Patient_Type_CN,</if>
+            <if test="fPatientNo != null">F_Patient_No,</if>
+            <if test="fTimes != null">F_Times,</if>
+            <if test="fInsuranceNo != null">F_Insurance_No,</if>
+            <if test="fPatientName != null">F_Patient_Name,</if>
+            <if test="fPatientBirthday != null">F_Patient_Birthday,</if>
+            <if test="fPatientAge != null">F_Patient_Age,</if>
+            <if test="fPatientCardno != null">F_Patient_CardNo,</if>
+            <if test="fPatientSex != null">F_Patient_Sex,</if>
+            <if test="fPatientJob != null">F_Patient_Job,</if>
+            <if test="fPatientAddress != null">F_Patient_Address,</if>
+            <if test="fDoctorNoZg != null">F_Doctor_No_ZG,</if>
+            <if test="fDoctorNameZg != null">F_Doctor_Name_ZG,</if>
+            <if test="fDeptNo != null">F_Dept_No,</if>
+            <if test="fDeptName != null">F_Dept_Name,</if>
+            <if test="fDatetimeIn != null">F_DateTime_In,</if>
+            <if test="fDatetimeOut != null">F_DateTime_Out,</if>
+            <if test="fBalanceDate != null">F_Balance_Date,</if>
+            <if test="fDays != null">F_Days,</if>
+            <if test="fDiagnosisInIcd != null">F_Diagnosis_In_Icd,</if>
+            <if test="fOperationInIcd != null">F_Operation_In_Icd,</if>
+            <if test="fDiagnosisOutIcd != null">F_Diagnosis_Out_Icd,</if>
+            <if test="fOperationOutIcd != null">F_Operation_Out_Icd,</if>
+            <if test="fDiagnosisMzIcd != null">F_Diagnosis_MZ_Icd,</if>
+            <if test="fDiagnosisIn != null">F_Diagnosis_In,</if>
+            <if test="fOperationIn != null">F_Operation_In,</if>
+            <if test="fDiagnosisOut != null">F_Diagnosis_Out,</if>
+            <if test="fOperationOut != null">F_Operation_Out,</if>
+            <if test="fDiagnosisMz != null">F_Diagnosis_MZ,</if>
+            <if test="fEmrDiagCode != null">F_Emr_Diag_Code,</if>
+            <if test="fEmrDiagName != null">F_Emr_Diag_Name,</if>
+            <if test="fEmrOprnCode != null">F_Emr_Oprn_Code,</if>
+            <if test="fEmrOprnName != null">F_Emr_Oprn_Name,</if>
+            <if test="fBaDiagCode != null">F_Ba_Diag_Code,</if>
+            <if test="fBaDiagName != null">F_Ba_Diag_Name,</if>
+            <if test="fBaOprnCode != null">F_Ba_Oprn_Code,</if>
+            <if test="fBaOprnName != null">F_Ba_Oprn_Name,</if>
+            <if test="fYbDiagCode != null">F_Yb_Diag_Code,</if>
+            <if test="fYbDiagName != null">F_Yb_Diag_Name,</if>
+            <if test="fYbOprnCode != null">F_Yb_Oprn_Code,</if>
+            <if test="fYbOprnName != null">F_Yb_Oprn_Name,</if>
+            <if test="fBmybh != null">F_BMYBH,</if>
+            <if test="fBmy != null">F_BMY,</if>
+            <if test="fTreatmentType != null">F_Treatment_Type,</if>
+            <if test="fTreatmentName != null">F_Treatment_Name,</if>
+            <if test="fDiagnosisIcdCal != null">F_Diagnosis_Icd_Cal,</if>
+            <if test="fDiagnosisCal != null">F_Diagnosis_Cal,</if>
+            <if test="fOperationIcdCal != null">F_Operation_Icd_Cal,</if>
+            <if test="fOperationCal != null">F_Operation_Cal,</if>
+            <if test="fTreatmentTypeCal != null">F_Treatment_Type_Cal,</if>
+            <if test="fTreatmentNameCal != null">F_Treatment_Name_Cal,</if>
+            <if test="fDiseaseType != null">F_Disease_Type,</if>
+            <if test="fDiseaseTypeBefor != null">F_Disease_Type_Befor,</if>
+            <if test="fYears != null">F_Years,</if>
+            <if test="fParQ0 != null">F_Par_Q0,</if>
+            <if test="fParQ1 != null">F_Par_Q1,</if>
+            <if test="fParQ1H != null">F_Par_Q1_H,</if>
+            <if test="fParB != null">F_Par_B,</if>
+            <if test="fParR != null">F_Par_R,</if>
+            <if test="fStandardScore != null">F_Standard_Score,</if>
+            <if test="fScore != null">F_Score,</if>
+            <if test="fAmount != null">F_Amount,</if>
+            <if test="fSbAmount != null">F_SB_Amount,</if>
+            <if test="fSbTotal != null">F_SB_Total,</if>
+            <if test="fBalance != null">F_Balance,</if>
+            <if test="fCostTotal != null">F_Cost_Total,</if>
+            <if test="fClinicalSbAmount != null">F_Clinical_SB_Amount,</if>
+            <if test="fPreSbTotal != null">F_Pre_SB_Total,</if>
+            <if test="fPreAmount != null">F_Pre_Amount,</if>
+            <if test="fPreZfhj != null">F_Pre_ZFHJ,</if>
+            <if test="fPreZyf != null">F_Pre_ZYF,</if>
+            <if test="fPreZfyf != null">F_Pre_ZFYF,</if>
+            <if test="fPreZclf != null">F_Pre_ZCLF,</if>
+            <if test="fPreZfcl != null">F_Pre_ZFCL,</if>
+            <if test="fMatchFlag != null">F_Match_Flag,</if>
+            <if test="fDoctorNoZy != null">F_Doctor_No_ZY,</if>
+            <if test="fDoctorNameZy != null">F_Doctor_Name_ZY,</if>
+            <if test="fDoctorNoZz != null">F_Doctor_No_ZZ,</if>
+            <if test="fDoctorNameZz != null">F_Doctor_Name_ZZ,</if>
+            <if test="fReportFlag != null">F_Report_Flag,</if>
+            <if test="fDeptNoBa != null">F_Dept_No_Ba,</if>
+            <if test="fDeptNameBa != null">F_Dept_Name_Ba,</if>
+            <if test="fJsfs != null">F_JSFS,</if>
+            <if test="fCostOperation != null">F_Cost_Operation,</if>
+            <if test="fCostZl != null">F_Cost_Zl,</if>
+            <if test="fUpdateFlag != null">F_Update_Flag,</if>
+            <if test="fDiagnosisOutFlag != null">F_Diagnosis_Out_Flag,</if>
+            <if test="fOperationOutFlag != null">F_Operation_Out_Flag,</if>
+            <if test="fDiagnosisMzFlag != null">F_Diagnosis_MZ_Flag,</if>
+            <if test="fDiagnosisBlFlag != null">F_Diagnosis_BL_Flag,</if>
+            <if test="createdAt != null">created_at,</if>
+            <if test="updatedAt != null">updated_at,</if>
+            <if test="fHisInFlag != null">F_His_In_Flag,</if>
+            <if test="sbIcdScoreVersionNo != null">sb_icd_score_version_no,</if>
+            <if test="sbOpTreatmentVersionNo != null">sb_op_treatment_version_no,</if>
+            <if test="fIsMt != null">F_Is_MT,</if>
+            <if test="fIsYb != null">F_Is_YB,</if>
+            <if test="fHisBz != null">F_His_BZ,</if>
+            <if test="fInStatus != null">F_In_Status,</if>
+            <if test="fAppraiseScore != null">F_Appraise_Score,</if>
+            <if test="fAppraiseScoreH != null">F_Appraise_Score_H,</if>
+            <if test="fPreMlnZf != null">F_Pre_MLN_ZF,</if>
+            <if test="fPreMlwZf != null">F_Pre_MLW_ZF,</if>
+            <if test="fPreParR != null">F_Pre_Par_R,</if>
+            <if test="fPreBalance != null">F_Pre_Balance,</if>
+            <if test="fJzjlh != null">F_JZJLH,</if>
+            <if test="fJsxh != null">F_JSXH,</if>
+            <if test="fHzlb != null">F_HZLB,</if>
+            <if test="fXzlx != null">F_XZLX,</if>
+            <if test="fYllb != null">F_YLLB,</if>
+            <if test="fDeptInNo != null">F_Dept_In_No,</if>
+            <if test="fDeptInName != null">F_Dept_In_Name,</if>
+            <if test="fEffectiveIncome != null">F_effective_income,</if>
+            <if test="fCostTreat != null">F_cost_treat,</if>
+            <if test="fWesternMedicine != null">F_western_medicine,</if>
+            <if test="fJcf != null">F_jcf,</if>
+            <if test="fChineseMedicine != null">F_chinese_medicine,</if>
+            <if test="fCostMaterial != null">F_cost_material,</if>
+            <if test="fInspection != null">F_Inspection,</if>
+            <if test="fMzf != null">F_mzf,</if>
+            <if test="gdType != null">gd_type,</if>
+            <if test="gdDocttime != null">gd_docttime,</if>
+            <if test="gdNursetime != null">gd_nursetime,</if>
+            <if test="preRuleCount != null">pre_rule_count,</if>
+            <if test="fWardNo != null">F_Ward_No,</if>
+            <if test="fWardName != null">F_Ward_Name,</if>
+            <if test="fOperationOutIcdDip != null">F_Operation_Out_Icd_Dip,</if>
+            <if test="fOperationOutDip != null">F_Operation_Out_Dip,</if>
+            <if test="ylzcode != null">ylzcode,</if>
+            <if test="ylzname != null">ylzname,</if>
+            <if test="doctor != null">doctor,</if>
+            <if test="sdrStatus != null">sdr_status,</if>
+            <if test="fYlAmount != null">F_Yl_Amount,</if>
+            <if test="isDay15 != null">is_day_15,</if>
+            <if test="diseaseGroup != null">disease_group,</if>
+            <if test="diseaseSeverity != null">disease_severity,</if>
+            <if test="diseaseAdjustment != null">disease_adjustment,</if>
+            <if test="additiveCoefficient != null">additive_coefficient,</if>
+            <if test="fTreatmentInfo != null">F_Treatment_Info,</if>
+            <if test="isHighPrecision != null">is_high_precision,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="fHisId != null">#{fHisId},</if>
+            <if test="fHisNo != null">#{fHisNo},</if>
+            <if test="fBedNo != null">#{fBedNo},</if>
+            <if test="fPatientType != null">#{fPatientType},</if>
+            <if test="fPatientTypeCn != null">#{fPatientTypeCn},</if>
+            <if test="fPatientNo != null">#{fPatientNo},</if>
+            <if test="fTimes != null">#{fTimes},</if>
+            <if test="fInsuranceNo != null">#{fInsuranceNo},</if>
+            <if test="fPatientName != null">#{fPatientName},</if>
+            <if test="fPatientBirthday != null">#{fPatientBirthday},</if>
+            <if test="fPatientAge != null">#{fPatientAge},</if>
+            <if test="fPatientCardno != null">#{fPatientCardno},</if>
+            <if test="fPatientSex != null">#{fPatientSex},</if>
+            <if test="fPatientJob != null">#{fPatientJob},</if>
+            <if test="fPatientAddress != null">#{fPatientAddress},</if>
+            <if test="fDoctorNoZg != null">#{fDoctorNoZg},</if>
+            <if test="fDoctorNameZg != null">#{fDoctorNameZg},</if>
+            <if test="fDeptNo != null">#{fDeptNo},</if>
+            <if test="fDeptName != null">#{fDeptName},</if>
+            <if test="fDatetimeIn != null">#{fDatetimeIn},</if>
+            <if test="fDatetimeOut != null">#{fDatetimeOut},</if>
+            <if test="fBalanceDate != null">#{fBalanceDate},</if>
+            <if test="fDays != null">#{fDays},</if>
+            <if test="fDiagnosisInIcd != null">#{fDiagnosisInIcd},</if>
+            <if test="fOperationInIcd != null">#{fOperationInIcd},</if>
+            <if test="fDiagnosisOutIcd != null">#{fDiagnosisOutIcd},</if>
+            <if test="fOperationOutIcd != null">#{fOperationOutIcd},</if>
+            <if test="fDiagnosisMzIcd != null">#{fDiagnosisMzIcd},</if>
+            <if test="fDiagnosisIn != null">#{fDiagnosisIn},</if>
+            <if test="fOperationIn != null">#{fOperationIn},</if>
+            <if test="fDiagnosisOut != null">#{fDiagnosisOut},</if>
+            <if test="fOperationOut != null">#{fOperationOut},</if>
+            <if test="fDiagnosisMz != null">#{fDiagnosisMz},</if>
+            <if test="fEmrDiagCode != null">#{fEmrDiagCode},</if>
+            <if test="fEmrDiagName != null">#{fEmrDiagName},</if>
+            <if test="fEmrOprnCode != null">#{fEmrOprnCode},</if>
+            <if test="fEmrOprnName != null">#{fEmrOprnName},</if>
+            <if test="fBaDiagCode != null">#{fBaDiagCode},</if>
+            <if test="fBaDiagName != null">#{fBaDiagName},</if>
+            <if test="fBaOprnCode != null">#{fBaOprnCode},</if>
+            <if test="fBaOprnName != null">#{fBaOprnName},</if>
+            <if test="fYbDiagCode != null">#{fYbDiagCode},</if>
+            <if test="fYbDiagName != null">#{fYbDiagName},</if>
+            <if test="fYbOprnCode != null">#{fYbOprnCode},</if>
+            <if test="fYbOprnName != null">#{fYbOprnName},</if>
+            <if test="fBmybh != null">#{fBmybh},</if>
+            <if test="fBmy != null">#{fBmy},</if>
+            <if test="fTreatmentType != null">#{fTreatmentType},</if>
+            <if test="fTreatmentName != null">#{fTreatmentName},</if>
+            <if test="fDiagnosisIcdCal != null">#{fDiagnosisIcdCal},</if>
+            <if test="fDiagnosisCal != null">#{fDiagnosisCal},</if>
+            <if test="fOperationIcdCal != null">#{fOperationIcdCal},</if>
+            <if test="fOperationCal != null">#{fOperationCal},</if>
+            <if test="fTreatmentTypeCal != null">#{fTreatmentTypeCal},</if>
+            <if test="fTreatmentNameCal != null">#{fTreatmentNameCal},</if>
+            <if test="fDiseaseType != null">#{fDiseaseType},</if>
+            <if test="fDiseaseTypeBefor != null">#{fDiseaseTypeBefor},</if>
+            <if test="fYears != null">#{fYears},</if>
+            <if test="fParQ0 != null">#{fParQ0},</if>
+            <if test="fParQ1 != null">#{fParQ1},</if>
+            <if test="fParQ1H != null">#{fParQ1H},</if>
+            <if test="fParB != null">#{fParB},</if>
+            <if test="fParR != null">#{fParR},</if>
+            <if test="fStandardScore != null">#{fStandardScore},</if>
+            <if test="fScore != null">#{fScore},</if>
+            <if test="fAmount != null">#{fAmount},</if>
+            <if test="fSbAmount != null">#{fSbAmount},</if>
+            <if test="fSbTotal != null">#{fSbTotal},</if>
+            <if test="fBalance != null">#{fBalance},</if>
+            <if test="fCostTotal != null">#{fCostTotal},</if>
+            <if test="fClinicalSbAmount != null">#{fClinicalSbAmount},</if>
+            <if test="fPreSbTotal != null">#{fPreSbTotal},</if>
+            <if test="fPreAmount != null">#{fPreAmount},</if>
+            <if test="fPreZfhj != null">#{fPreZfhj},</if>
+            <if test="fPreZyf != null">#{fPreZyf},</if>
+            <if test="fPreZfyf != null">#{fPreZfyf},</if>
+            <if test="fPreZclf != null">#{fPreZclf},</if>
+            <if test="fPreZfcl != null">#{fPreZfcl},</if>
+            <if test="fMatchFlag != null">#{fMatchFlag},</if>
+            <if test="fDoctorNoZy != null">#{fDoctorNoZy},</if>
+            <if test="fDoctorNameZy != null">#{fDoctorNameZy},</if>
+            <if test="fDoctorNoZz != null">#{fDoctorNoZz},</if>
+            <if test="fDoctorNameZz != null">#{fDoctorNameZz},</if>
+            <if test="fReportFlag != null">#{fReportFlag},</if>
+            <if test="fDeptNoBa != null">#{fDeptNoBa},</if>
+            <if test="fDeptNameBa != null">#{fDeptNameBa},</if>
+            <if test="fJsfs != null">#{fJsfs},</if>
+            <if test="fCostOperation != null">#{fCostOperation},</if>
+            <if test="fCostZl != null">#{fCostZl},</if>
+            <if test="fUpdateFlag != null">#{fUpdateFlag},</if>
+            <if test="fDiagnosisOutFlag != null">#{fDiagnosisOutFlag},</if>
+            <if test="fOperationOutFlag != null">#{fOperationOutFlag},</if>
+            <if test="fDiagnosisMzFlag != null">#{fDiagnosisMzFlag},</if>
+            <if test="fDiagnosisBlFlag != null">#{fDiagnosisBlFlag},</if>
+            <if test="createdAt != null">#{createdAt},</if>
+            <if test="updatedAt != null">#{updatedAt},</if>
+            <if test="fHisInFlag != null">#{fHisInFlag},</if>
+            <if test="sbIcdScoreVersionNo != null">#{sbIcdScoreVersionNo},</if>
+            <if test="sbOpTreatmentVersionNo != null">#{sbOpTreatmentVersionNo},</if>
+            <if test="fIsMt != null">#{fIsMt},</if>
+            <if test="fIsYb != null">#{fIsYb},</if>
+            <if test="fHisBz != null">#{fHisBz},</if>
+            <if test="fInStatus != null">#{fInStatus},</if>
+            <if test="fAppraiseScore != null">#{fAppraiseScore},</if>
+            <if test="fAppraiseScoreH != null">#{fAppraiseScoreH},</if>
+            <if test="fPreMlnZf != null">#{fPreMlnZf},</if>
+            <if test="fPreMlwZf != null">#{fPreMlwZf},</if>
+            <if test="fPreParR != null">#{fPreParR},</if>
+            <if test="fPreBalance != null">#{fPreBalance},</if>
+            <if test="fJzjlh != null">#{fJzjlh},</if>
+            <if test="fJsxh != null">#{fJsxh},</if>
+            <if test="fHzlb != null">#{fHzlb},</if>
+            <if test="fXzlx != null">#{fXzlx},</if>
+            <if test="fYllb != null">#{fYllb},</if>
+            <if test="fDeptInNo != null">#{fDeptInNo},</if>
+            <if test="fDeptInName != null">#{fDeptInName},</if>
+            <if test="fEffectiveIncome != null">#{fEffectiveIncome},</if>
+            <if test="fCostTreat != null">#{fCostTreat},</if>
+            <if test="fWesternMedicine != null">#{fWesternMedicine},</if>
+            <if test="fJcf != null">#{fJcf},</if>
+            <if test="fChineseMedicine != null">#{fChineseMedicine},</if>
+            <if test="fCostMaterial != null">#{fCostMaterial},</if>
+            <if test="fInspection != null">#{fInspection},</if>
+            <if test="fMzf != null">#{fMzf},</if>
+            <if test="gdType != null">#{gdType},</if>
+            <if test="gdDocttime != null">#{gdDocttime},</if>
+            <if test="gdNursetime != null">#{gdNursetime},</if>
+            <if test="preRuleCount != null">#{preRuleCount},</if>
+            <if test="fWardNo != null">#{fWardNo},</if>
+            <if test="fWardName != null">#{fWardName},</if>
+            <if test="fOperationOutIcdDip != null">#{fOperationOutIcdDip},</if>
+            <if test="fOperationOutDip != null">#{fOperationOutDip},</if>
+            <if test="ylzcode != null">#{ylzcode},</if>
+            <if test="ylzname != null">#{ylzname},</if>
+            <if test="doctor != null">#{doctor},</if>
+            <if test="sdrStatus != null">#{sdrStatus},</if>
+            <if test="fYlAmount != null">#{fYlAmount},</if>
+            <if test="isDay15 != null">#{isDay15},</if>
+            <if test="diseaseGroup != null">#{diseaseGroup},</if>
+            <if test="diseaseSeverity != null">#{diseaseSeverity},</if>
+            <if test="diseaseAdjustment != null">#{diseaseAdjustment},</if>
+            <if test="additiveCoefficient != null">#{additiveCoefficient},</if>
+            <if test="fTreatmentInfo != null">#{fTreatmentInfo},</if>
+            <if test="isHighPrecision != null">#{isHighPrecision},</if>
+         </trim>
+    </insert>
+
+    <update id="updateHisPatientInfo" parameterType="HisPatientInfo">
+        update his_patient_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="fHisId != null">F_His_Id = #{fHisId},</if>
+            <if test="fHisNo != null">F_His_No = #{fHisNo},</if>
+            <if test="fBedNo != null">F_Bed_No = #{fBedNo},</if>
+            <if test="fPatientType != null">F_Patient_Type = #{fPatientType},</if>
+            <if test="fPatientTypeCn != null">F_Patient_Type_CN = #{fPatientTypeCn},</if>
+            <if test="fPatientNo != null">F_Patient_No = #{fPatientNo},</if>
+            <if test="fTimes != null">F_Times = #{fTimes},</if>
+            <if test="fInsuranceNo != null">F_Insurance_No = #{fInsuranceNo},</if>
+            <if test="fPatientName != null">F_Patient_Name = #{fPatientName},</if>
+            <if test="fPatientBirthday != null">F_Patient_Birthday = #{fPatientBirthday},</if>
+            <if test="fPatientAge != null">F_Patient_Age = #{fPatientAge},</if>
+            <if test="fPatientCardno != null">F_Patient_CardNo = #{fPatientCardno},</if>
+            <if test="fPatientSex != null">F_Patient_Sex = #{fPatientSex},</if>
+            <if test="fPatientJob != null">F_Patient_Job = #{fPatientJob},</if>
+            <if test="fPatientAddress != null">F_Patient_Address = #{fPatientAddress},</if>
+            <if test="fDoctorNoZg != null">F_Doctor_No_ZG = #{fDoctorNoZg},</if>
+            <if test="fDoctorNameZg != null">F_Doctor_Name_ZG = #{fDoctorNameZg},</if>
+            <if test="fDeptNo != null">F_Dept_No = #{fDeptNo},</if>
+            <if test="fDeptName != null">F_Dept_Name = #{fDeptName},</if>
+            <if test="fDatetimeIn != null">F_DateTime_In = #{fDatetimeIn},</if>
+            <if test="fDatetimeOut != null">F_DateTime_Out = #{fDatetimeOut},</if>
+            <if test="fBalanceDate != null">F_Balance_Date = #{fBalanceDate},</if>
+            <if test="fDays != null">F_Days = #{fDays},</if>
+            <if test="fDiagnosisInIcd != null">F_Diagnosis_In_Icd = #{fDiagnosisInIcd},</if>
+            <if test="fOperationInIcd != null">F_Operation_In_Icd = #{fOperationInIcd},</if>
+            <if test="fDiagnosisOutIcd != null">F_Diagnosis_Out_Icd = #{fDiagnosisOutIcd},</if>
+            <if test="fOperationOutIcd != null">F_Operation_Out_Icd = #{fOperationOutIcd},</if>
+            <if test="fDiagnosisMzIcd != null">F_Diagnosis_MZ_Icd = #{fDiagnosisMzIcd},</if>
+            <if test="fDiagnosisIn != null">F_Diagnosis_In = #{fDiagnosisIn},</if>
+            <if test="fOperationIn != null">F_Operation_In = #{fOperationIn},</if>
+            <if test="fDiagnosisOut != null">F_Diagnosis_Out = #{fDiagnosisOut},</if>
+            <if test="fOperationOut != null">F_Operation_Out = #{fOperationOut},</if>
+            <if test="fDiagnosisMz != null">F_Diagnosis_MZ = #{fDiagnosisMz},</if>
+            <if test="fEmrDiagCode != null">F_Emr_Diag_Code = #{fEmrDiagCode},</if>
+            <if test="fEmrDiagName != null">F_Emr_Diag_Name = #{fEmrDiagName},</if>
+            <if test="fEmrOprnCode != null">F_Emr_Oprn_Code = #{fEmrOprnCode},</if>
+            <if test="fEmrOprnName != null">F_Emr_Oprn_Name = #{fEmrOprnName},</if>
+            <if test="fBaDiagCode != null">F_Ba_Diag_Code = #{fBaDiagCode},</if>
+            <if test="fBaDiagName != null">F_Ba_Diag_Name = #{fBaDiagName},</if>
+            <if test="fBaOprnCode != null">F_Ba_Oprn_Code = #{fBaOprnCode},</if>
+            <if test="fBaOprnName != null">F_Ba_Oprn_Name = #{fBaOprnName},</if>
+            <if test="fYbDiagCode != null">F_Yb_Diag_Code = #{fYbDiagCode},</if>
+            <if test="fYbDiagName != null">F_Yb_Diag_Name = #{fYbDiagName},</if>
+            <if test="fYbOprnCode != null">F_Yb_Oprn_Code = #{fYbOprnCode},</if>
+            <if test="fYbOprnName != null">F_Yb_Oprn_Name = #{fYbOprnName},</if>
+            <if test="fBmybh != null">F_BMYBH = #{fBmybh},</if>
+            <if test="fBmy != null">F_BMY = #{fBmy},</if>
+            <if test="fTreatmentType != null">F_Treatment_Type = #{fTreatmentType},</if>
+            <if test="fTreatmentName != null">F_Treatment_Name = #{fTreatmentName},</if>
+            <if test="fDiagnosisIcdCal != null">F_Diagnosis_Icd_Cal = #{fDiagnosisIcdCal},</if>
+            <if test="fDiagnosisCal != null">F_Diagnosis_Cal = #{fDiagnosisCal},</if>
+            <if test="fOperationIcdCal != null">F_Operation_Icd_Cal = #{fOperationIcdCal},</if>
+            <if test="fOperationCal != null">F_Operation_Cal = #{fOperationCal},</if>
+            <if test="fTreatmentTypeCal != null">F_Treatment_Type_Cal = #{fTreatmentTypeCal},</if>
+            <if test="fTreatmentNameCal != null">F_Treatment_Name_Cal = #{fTreatmentNameCal},</if>
+            <if test="fDiseaseType != null">F_Disease_Type = #{fDiseaseType},</if>
+            <if test="fDiseaseTypeBefor != null">F_Disease_Type_Befor = #{fDiseaseTypeBefor},</if>
+            <if test="fYears != null">F_Years = #{fYears},</if>
+            <if test="fParQ0 != null">F_Par_Q0 = #{fParQ0},</if>
+            <if test="fParQ1 != null">F_Par_Q1 = #{fParQ1},</if>
+            <if test="fParQ1H != null">F_Par_Q1_H = #{fParQ1H},</if>
+            <if test="fParB != null">F_Par_B = #{fParB},</if>
+            <if test="fParR != null">F_Par_R = #{fParR},</if>
+            <if test="fStandardScore != null">F_Standard_Score = #{fStandardScore},</if>
+            <if test="fScore != null">F_Score = #{fScore},</if>
+            <if test="fAmount != null">F_Amount = #{fAmount},</if>
+            <if test="fSbAmount != null">F_SB_Amount = #{fSbAmount},</if>
+            <if test="fSbTotal != null">F_SB_Total = #{fSbTotal},</if>
+            <if test="fBalance != null">F_Balance = #{fBalance},</if>
+            <if test="fCostTotal != null">F_Cost_Total = #{fCostTotal},</if>
+            <if test="fClinicalSbAmount != null">F_Clinical_SB_Amount = #{fClinicalSbAmount},</if>
+            <if test="fPreSbTotal != null">F_Pre_SB_Total = #{fPreSbTotal},</if>
+            <if test="fPreAmount != null">F_Pre_Amount = #{fPreAmount},</if>
+            <if test="fPreZfhj != null">F_Pre_ZFHJ = #{fPreZfhj},</if>
+            <if test="fPreZyf != null">F_Pre_ZYF = #{fPreZyf},</if>
+            <if test="fPreZfyf != null">F_Pre_ZFYF = #{fPreZfyf},</if>
+            <if test="fPreZclf != null">F_Pre_ZCLF = #{fPreZclf},</if>
+            <if test="fPreZfcl != null">F_Pre_ZFCL = #{fPreZfcl},</if>
+            <if test="fMatchFlag != null">F_Match_Flag = #{fMatchFlag},</if>
+            <if test="fDoctorNoZy != null">F_Doctor_No_ZY = #{fDoctorNoZy},</if>
+            <if test="fDoctorNameZy != null">F_Doctor_Name_ZY = #{fDoctorNameZy},</if>
+            <if test="fDoctorNoZz != null">F_Doctor_No_ZZ = #{fDoctorNoZz},</if>
+            <if test="fDoctorNameZz != null">F_Doctor_Name_ZZ = #{fDoctorNameZz},</if>
+            <if test="fReportFlag != null">F_Report_Flag = #{fReportFlag},</if>
+            <if test="fDeptNoBa != null">F_Dept_No_Ba = #{fDeptNoBa},</if>
+            <if test="fDeptNameBa != null">F_Dept_Name_Ba = #{fDeptNameBa},</if>
+            <if test="fJsfs != null">F_JSFS = #{fJsfs},</if>
+            <if test="fCostOperation != null">F_Cost_Operation = #{fCostOperation},</if>
+            <if test="fCostZl != null">F_Cost_Zl = #{fCostZl},</if>
+            <if test="fUpdateFlag != null">F_Update_Flag = #{fUpdateFlag},</if>
+            <if test="fDiagnosisOutFlag != null">F_Diagnosis_Out_Flag = #{fDiagnosisOutFlag},</if>
+            <if test="fOperationOutFlag != null">F_Operation_Out_Flag = #{fOperationOutFlag},</if>
+            <if test="fDiagnosisMzFlag != null">F_Diagnosis_MZ_Flag = #{fDiagnosisMzFlag},</if>
+            <if test="fDiagnosisBlFlag != null">F_Diagnosis_BL_Flag = #{fDiagnosisBlFlag},</if>
+            <if test="createdAt != null">created_at = #{createdAt},</if>
+            <if test="updatedAt != null">updated_at = #{updatedAt},</if>
+            <if test="fHisInFlag != null">F_His_In_Flag = #{fHisInFlag},</if>
+            <if test="sbIcdScoreVersionNo != null">sb_icd_score_version_no = #{sbIcdScoreVersionNo},</if>
+            <if test="sbOpTreatmentVersionNo != null">sb_op_treatment_version_no = #{sbOpTreatmentVersionNo},</if>
+            <if test="fIsMt != null">F_Is_MT = #{fIsMt},</if>
+            <if test="fIsYb != null">F_Is_YB = #{fIsYb},</if>
+            <if test="fHisBz != null">F_His_BZ = #{fHisBz},</if>
+            <if test="fInStatus != null">F_In_Status = #{fInStatus},</if>
+            <if test="fAppraiseScore != null">F_Appraise_Score = #{fAppraiseScore},</if>
+            <if test="fAppraiseScoreH != null">F_Appraise_Score_H = #{fAppraiseScoreH},</if>
+            <if test="fPreMlnZf != null">F_Pre_MLN_ZF = #{fPreMlnZf},</if>
+            <if test="fPreMlwZf != null">F_Pre_MLW_ZF = #{fPreMlwZf},</if>
+            <if test="fPreParR != null">F_Pre_Par_R = #{fPreParR},</if>
+            <if test="fPreBalance != null">F_Pre_Balance = #{fPreBalance},</if>
+            <if test="fJzjlh != null">F_JZJLH = #{fJzjlh},</if>
+            <if test="fJsxh != null">F_JSXH = #{fJsxh},</if>
+            <if test="fHzlb != null">F_HZLB = #{fHzlb},</if>
+            <if test="fXzlx != null">F_XZLX = #{fXzlx},</if>
+            <if test="fYllb != null">F_YLLB = #{fYllb},</if>
+            <if test="fDeptInNo != null">F_Dept_In_No = #{fDeptInNo},</if>
+            <if test="fDeptInName != null">F_Dept_In_Name = #{fDeptInName},</if>
+            <if test="fEffectiveIncome != null">F_effective_income = #{fEffectiveIncome},</if>
+            <if test="fCostTreat != null">F_cost_treat = #{fCostTreat},</if>
+            <if test="fWesternMedicine != null">F_western_medicine = #{fWesternMedicine},</if>
+            <if test="fJcf != null">F_jcf = #{fJcf},</if>
+            <if test="fChineseMedicine != null">F_chinese_medicine = #{fChineseMedicine},</if>
+            <if test="fCostMaterial != null">F_cost_material = #{fCostMaterial},</if>
+            <if test="fInspection != null">F_Inspection = #{fInspection},</if>
+            <if test="fMzf != null">F_mzf = #{fMzf},</if>
+            <if test="gdType != null">gd_type = #{gdType},</if>
+            <if test="gdDocttime != null">gd_docttime = #{gdDocttime},</if>
+            <if test="gdNursetime != null">gd_nursetime = #{gdNursetime},</if>
+            <if test="preRuleCount != null">pre_rule_count = #{preRuleCount},</if>
+            <if test="fWardNo != null">F_Ward_No = #{fWardNo},</if>
+            <if test="fWardName != null">F_Ward_Name = #{fWardName},</if>
+            <if test="fOperationOutIcdDip != null">F_Operation_Out_Icd_Dip = #{fOperationOutIcdDip},</if>
+            <if test="fOperationOutDip != null">F_Operation_Out_Dip = #{fOperationOutDip},</if>
+            <if test="ylzcode != null">ylzcode = #{ylzcode},</if>
+            <if test="ylzname != null">ylzname = #{ylzname},</if>
+            <if test="doctor != null">doctor = #{doctor},</if>
+            <if test="sdrStatus != null">sdr_status = #{sdrStatus},</if>
+            <if test="fYlAmount != null">F_Yl_Amount = #{fYlAmount},</if>
+            <if test="isDay15 != null">is_day_15 = #{isDay15},</if>
+            <if test="diseaseGroup != null">disease_group = #{diseaseGroup},</if>
+            <if test="diseaseSeverity != null">disease_severity = #{diseaseSeverity},</if>
+            <if test="diseaseAdjustment != null">disease_adjustment = #{diseaseAdjustment},</if>
+            <if test="additiveCoefficient != null">additive_coefficient = #{additiveCoefficient},</if>
+            <if test="fTreatmentInfo != null">F_Treatment_Info = #{fTreatmentInfo},</if>
+            <if test="isHighPrecision != null">is_high_precision = #{isHighPrecision},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteHisPatientInfoById" parameterType="Long">
+        delete from his_patient_info where id = #{id}
+    </delete>
+
+    <delete id="deleteHisPatientInfoByIds" parameterType="String">
+        delete from his_patient_info where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
